@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -9,10 +10,21 @@ class Artist(models.Model):
         return self.name
 
 class Genre(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
         return self.name
+    
+    def clean(self):
+        # Normalize the name to lower case for uniqueness check
+        normalized_name = self.name.lower()
+        if Genre.objects.exclude(pk=self.pk).filter(name__iexact=normalized_name).exists():
+            raise ValidationError('Genre with this Name already exists')
+        super().clean()
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
 
 class Song(models.Model):
     title = models.CharField(max_length=255)
