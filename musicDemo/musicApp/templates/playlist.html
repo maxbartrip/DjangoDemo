@@ -1,46 +1,27 @@
+{% extends "base.html" %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Song List</title>
+
+{% block title %}Song List{% endblock %}
+
+{% block extra_css %}
     <link rel="stylesheet" href="{% static 'css\playlist.css' %}">
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="logo">
-            <a href="/">SongDB</a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/playlist/">Playlists</a></li>
-            <li><a href="/admin/">Admin</a></li>
-        </ul>
-    </nav>
+{% endblock %}
 
-    <!-- Main Content -->
-    <div class="container">
-        <h1>Song List</h1>
+<!-- Main Content -->
+{% block content %}
+    <h1>Song List</h1>
 
-        <ul class="song-list">
-            {% for song in songs %}
-                <li class="song-item">
-                    <span class="song-title">{{ song.title }}</span> 
-                    <span class="song-details">({{ song.genres.all|join:", " }}) by {{ song.artists.all|join:", " }}</span>
-                    <br>
-                    <em class="release-date">Released on: {{ song.release_date }}</em>
-                </li>
-            {% empty %}
-                <li>No songs available.</li>
-            {% endfor %}
-        </ul>
-    </div>
-    
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Song Database. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+    <ul class="song-list">
+        {% for song in songs %}
+            <li class="song-item">
+                <span class="song-title">{{ song.title }}</span> 
+                <span class="song-details">({{ song.genres.all|join:", " }}) by {{ song.artists.all|join:", " }}</span>
+                <br>
+                <em class="release-date">Released on: {{ song.release_date }}</em>
+            </li>
+        {% empty %}
+            <li>No songs available.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
