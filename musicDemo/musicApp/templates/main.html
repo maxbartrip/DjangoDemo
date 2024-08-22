@@ -1,3 +1,35 @@
-<h1>Music playlist website</h1>
-<p>This is a test page for a music playlist website.</p>
-<p style="text-align: center;"><span style="color: #ff0000;"><strong>--- BEING BUILT ---</strong></span></p>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Database</title>
+    <link rel="stylesheet" href="{% static 'css\main.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <a href="/">SongDB</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/playlist/">Playlists</a></li>
+            <li><a href="/admin/">Admin</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome to Song Database</h1>
+        <p>Your ultimate hub for exploring and managing your favorite songs.</p>
+        <p class="under-construction">This website is currently under construction. Stay tuned for more updates!</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Song Database. All rights reserved.</p>
+    </footer>
+</body>
+</html>
