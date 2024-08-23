@@ -12,11 +12,19 @@
 {% block content %}
     <h1>Song List</h1>
 
+    <form class="sort-form" method="get" action="{% url 'playlist' %}">
+        <label for="sort">Sort by:</label>
+        <select id="sort" name="sort" onchange="this.form.submit()">
+            <option value="name_a_z" {% if sort_option == 'name_a_z' %}selected{% endif %}>Name A-Z</option>
+            <option value="name_z_a" {% if sort_option == 'name_z_a' %}selected{% endif %}>Name Z-A</option>
+        </select>
+    </form>
+
     <ul class="song-list">
         {% for song in songs %}
             <li class="song-item">
                 <span class="song-title">{{ song.title }}</span> 
-                <span class="song-details">({{ song.genres.all|join:", " }}) by {{ song.artists.all|join:", " }}</span>
+                <span class="song-details">({{ song.sorted_genres|join:", " }}) by {{ song.artists.all|join:", " }}</span>
                 <br>
                 <em class="release-date">Released on: {{ song.release_date }}</em>
             </li>
