@@ -9,7 +9,7 @@ def main(request):
 def playlist(request):
     sort_option = request.GET.get("sort", "name_a_z")
 
-    # Ger primary artist for sorting by artist (First artist should always be primary artist)
+    # Get primary artist for sorting by artist (First artist should always be primary artist)
     primary_artist = Subquery (Artist.objects.filter(songs=OuterRef("pk")).order_by("pk").values("name")[:1])
 
     if sort_option == "name_z_a":
