@@ -21,9 +21,9 @@ def playlist(request):
     elif sort_option == "oldest":
         songs = Song.objects.order_by("release_date") # Sort by oldest
     elif sort_option == "artist_a_z":
-        songs = Song.objects.order_by(primary_artist)  # Sort by first artist A-Z
+        songs = Song.objects.annotate(primary_artist_name=primary_artist).order_by("primary_artist_name")  # Sort by first artist A-Z
     elif sort_option == "artist_z_a":
-        songs = Song.objects.order_by(-primary_artist)  # Sort by first artist Z-A
+        songs = Song.objects.annotate(primary_artist_name=primary_artist).order_by("-primary_artist_name")  # Sort by first artist Z-A
     else:
         songs = Song.objects.order_by("title") # Default to sorting A-Z
 
