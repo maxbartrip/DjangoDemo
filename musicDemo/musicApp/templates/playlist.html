@@ -15,8 +15,12 @@
     <form class="sort-form" method="get" action="{% url 'playlist' %}">
         <label for="sort">Sort by:</label>
         <select id="sort" name="sort" onchange="this.form.submit()">
-            <option value="name_a_z" {% if sort_option == 'name_a_z' %}selected{% endif %}>Name A-Z</option>
-            <option value="name_z_a" {% if sort_option == 'name_z_a' %}selected{% endif %}>Name Z-A</option>
+            <option value="name_a_z" {% if sort_option == "name_a_z" %}selected{% endif %}>Name A - Z</option>
+            <option value="name_z_a" {% if sort_option == "name_z_a" %}selected{% endif %}>Name Z - A</option>
+            <option value="newest" {% if sort_option == "newest" %}selected{% endif %}>Newest</option>
+            <option value="oldest" {% if sort_option == "oldest" %}selected{% endif %}>Oldest</option>
+            <option value="artist_a_z" {% if sort_option == 'artist_a_z' %}selected{% endif %}>Artist A - Z</option>
+            <option value="artist_z_a" {% if sort_option == 'artist_z_a' %}selected{% endif %}>Artist Z - A</option>
         </select>
     </form>
 

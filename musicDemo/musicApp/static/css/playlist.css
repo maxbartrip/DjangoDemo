@@ -57,6 +57,7 @@ nav {
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    margin-bottom: 60px;
 }
 
 /* Heading Styling */
@@ -130,6 +131,7 @@ h1 {
 
 .song-item:last-child {
     border-bottom: none;
+    margin-bottom: -10px;
 }
 
 /* Hover Effects */
