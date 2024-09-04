@@ -12,7 +12,11 @@
 {% block content %}
     <h1>Song List</h1>
 
-    <form class="sort-form" method="get" action="{% url 'playlist' %}">
+    <form class="search-sort-form" method="get" action="{% url 'playlist' %}">
+        <div class = "search-bar-container">
+            <input type="text" name="search" placeholder="Search songs..." value="{{ search_query }}">
+            <button type="submit">Search</button>
+        </div>
         <label for="sort">Sort by:</label>
         <select id="sort" name="sort" onchange="this.form.submit()">
             <option value="name_a_z" {% if sort_option == "name_a_z" %}selected{% endif %}>Name A - Z</option>
