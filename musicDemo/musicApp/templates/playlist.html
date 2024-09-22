@@ -10,6 +10,7 @@
 
 <!-- Main Content -->
 {% block content %}
+<div class="container">
     <h1>Song List</h1>
 
     <form class="search-sort-form" method="get" action="{% url 'playlist' %}">
@@ -40,4 +41,5 @@
             <li>No songs available.</li>
         {% endfor %}
     </ul>
+</div>
 {% endblock %}
