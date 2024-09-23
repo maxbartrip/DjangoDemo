@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Subquery, OuterRef, Q
-from .models import Song, Artist
+from .models import Song, Artist, Genre
 
 # Create your views here.
 def main(request):
@@ -12,6 +12,7 @@ def playlist(request):
 
     # Base queryset
     songs = Song.objects.all()
+    genres = sorted(Genre.objects.all(), key=lambda g: g.name)
 
 
     # Get primary artist for sorting by artist (First artist should always be primary artist)
@@ -45,4 +46,4 @@ def playlist(request):
     for song in songs:
         song.sorted_genres = sorted(song.genres.all(), key=lambda g: g.name)
 
-    return render(request, "playlist.html", {'songs': songs, 'sort_option': sort_option, 'search_query': search_query})
+    return render(request, "playlist.html", {'songs': songs, 'sort_option': sort_option, 'search_query': search_query, 'genres': genres})

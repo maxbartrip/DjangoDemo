@@ -31,7 +31,51 @@
     </form>
 
     <button type="button" class="collapsible" id="collapse" onclick="myFunction()">Filters</button>
-    <div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+    <div class="content">
+        <table class="included-genre-table">
+            <legend>Included Genres:</legend>
+            <tr>
+                {% for genre in genres %}
+                <td>
+                    <input type="checkbox" name="included_genre" value="{{ genre.name }}" id="included_{{ genre.name|slugify }}">
+                    <label for="included_{{ genre.name|slugify }}">{{ genre.name }}</label>
+                </td>
+                {% if forloop.counter|divisibleby:5 and not forloop.last %}
+                    </tr><tr>  <!-- Start a new row after every 5 genres -->
+                {% endif %}
+            {% empty %}
+                <tr><td>No genres available.</td></tr>
+            {% endfor %}
+            </tr>
+        </table>
+
+        <br>
+
+        <table class="excluded-genre-table">
+            <legend>Excluded Genres:</legend>
+            <tr>
+                {% for genre in genres %}
+                <td>
+                    <input type="checkbox" name="excluded_genre" value="{{ genre.name }}" id="excluded_{{ genre.name|slugify }}">
+                    <label for="excluded_{{ genre.name|slugify }}">{{ genre.name }}</label>
+                </td>
+                {% if forloop.counter|divisibleby:5 and not forloop.last %}
+                    </tr><tr>  <!-- Start a new row after every 5 genres -->
+                {% endif %}
+            {% empty %}
+                <tr><td>No genres available.</td></tr>
+            {% endfor %}
+            </tr>
+        </table>
+
+        <br>
+
+        <div class="button-container">
+            <button type="submit" class="apply-filters">Apply Filters</button>
+            <button type="button" class="clear-filters">Clear Filters</button>
+        </div>
+
+    </div>
 
     <ul class="song-list">
         {% for song in songs %}
