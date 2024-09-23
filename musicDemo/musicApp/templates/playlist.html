@@ -51,6 +51,18 @@
 
         <br>
 
+        <legend>Inclusion Mode:</legend>
+        <div class="switch-container">
+            <span class="switch-label">AND</span>
+            <label class="switch">
+                <input type="checkbox" id="inclusion_mode" name="inclusion_mode" value="or">
+                <span class="slider"></span>
+            </label>
+            <span class="switch-label">OR</span>
+        </div>
+
+        <br>
+
         <table class="excluded-genre-table">
             <legend>Excluded Genres:</legend>
             <tr>
@@ -67,6 +79,18 @@
             {% endfor %}
             </tr>
         </table>
+
+        <br>
+
+        <legend>Exclusion Mode:</legend>
+        <div class="switch-container">
+            <span class="switch-label">AND</span>
+            <label class="switch">
+                <input type="checkbox" id="exclusion_mode" name="exclusion_mode" value="or">
+                <span class="slider"></span>
+            </label>
+            <span class="switch-label">OR</span>
+        </div>
 
         <br>
 
