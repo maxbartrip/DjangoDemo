@@ -6,6 +6,7 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css\playlist.css' %}">
+    <script src="{% static 'js\collapsable.js' %}"></script>
 {% endblock %}
 
 <!-- Main Content -->
@@ -28,6 +29,9 @@
             <option value="artist_z_a" {% if sort_option == 'artist_z_a' %}selected{% endif %}>Artist Z - A</option>
         </select>
     </form>
+
+    <button type="button" class="collapsible" id="collapse" onclick="myFunction()">Filters</button>
+    <div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
 
     <ul class="song-list">
         {% for song in songs %}

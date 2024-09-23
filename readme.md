@@ -14,3 +14,7 @@ Here you can see what the home page of the website currently looks like.
 Here is an image of what the main database page (called playlist page) of the website looks like. This page has the option to search, as well as sort the list of songs.
 
 ![Playlist Page](https://github.com/maxbartrip/DjangoDemo/blob/main/readmeImages/PlaylistDefault.png)
+
+When the filter button is clicked, it will change colour and display the content that is hidden. This will contain the list of genres for filtering, but currently just has filler text.
+
+![Playlist Filters](https://github.com/maxbartrip/DjangoDemo/blob/main/readmeImages/PlaylistFilters.png)
