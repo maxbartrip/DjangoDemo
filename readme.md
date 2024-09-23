@@ -15,6 +15,6 @@ Here is an image of what the main database page (called playlist page) of the we
 
 ![Playlist Page](https://github.com/maxbartrip/DjangoDemo/blob/main/readmeImages/PlaylistDefault.png)
 
-When the filter button is clicked, it will change colour and display the content that is hidden. This will contain the list of genres for filtering, but currently just has filler text.
+When the filter button is clicked, it will change colour and display the content that is hidden. This contains a list of genres for filtering. Currently it is non-functioning, however the intent is to make it so that the user can filter by the genres they want to see, as well as filter out any genres they don't want to see.
 
 ![Playlist Filters](https://github.com/maxbartrip/DjangoDemo/blob/main/readmeImages/PlaylistFilters.png)
